@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Immigration News Canada - Visitor Visa Application</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    body{
+      margin:0;
+      font-family:Arial, sans-serif;
+      background:#fafafa;
+      color:#222;
+      line-height:1.6;
+    }
+    a{color:#0056b3;text-decoration:none}
+    a:hover{text-decoration:underline}
+    header{
+      background:#8b5e3c;
+      color:white;
+      padding:10px 20px;
+      position:sticky;top:0;z-index:1000;
+      display:flex;align-items:center;justify-content:space-between;
+    }
+    header h1{margin:0;font-size:20px}
+    nav{margin-left:20px;}
+    nav a{margin:0 8px;color:#f2c94c;font-weight:bold;}
+    .search-box input{padding:6px;border-radius:6px;border:1px solid #ccc;}
+
+    /* top section with image and tool side by side */
+    .top-section{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:20px;
+      max-width:1200px;
+      margin:20px auto;
+      padding:0 20px;
+    }
+    .top-section img{
+      width:100%;
+      border-radius:10px;
+      box-shadow:0 2px 6px rgba(0,0,0,0.05);
+    }
+    aside{
+      background:#fff;padding:20px;border-radius:10px;
+      box-shadow:0 2px 6px rgba(0,0,0,0.05);
+    }
+    .btn{
+      display:inline-block;padding:10px 14px;margin-top:8px;border-radius:8px;
+      background:#8b5e3c;color:white;font-weight:bold;text-decoration:none;
+    }
+    .btn.secondary{background:#f2c94c;color:#8b5e3c;}
+    .status{margin-top:10px;font-weight:bold}
+    .ready{color:green}.pending{color:orange}.error{color:red}
+
+    .container{max-width:1200px;margin:auto;padding:20px;}
+    article{background:white;padding:20px;border-radius:10px;box-shadow:0 2px 6px rgba(0,0,0,0.05);}
+    article h2{margin-top:0;color:#8b5e3c}
+
+    footer{text-align:center;padding:20px;background:#333;color:#eee;margin-top:20px}
+    .whatsapp{
+      display:inline-block;
+      background:#25D366;color:white;
+      padding:10px 12px;border-radius:8px;margin-top:12px;font-weight:bold;
+    }
+    @media(max-width:900px){
+      .top-section{grid-template-columns:1fr}
+    }
+    .inputField {
+      padding: 8px;
+      width: 90%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      margin-top: 5px;
+    }
+    #whatsappLink {
+      display: none;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <a href="#main" style="position:absolute;left:-999px;top:auto">Skip to content</a>
+  
+  <header>
+    <h1>Immigration News Canada - INC News</h1>
+    <div class="search-box">
+      <input type="text" placeholder="Search for...">
+    </div>
+  </header>
+  
+  <nav style="background:#f2c94c;padding:10px 20px;">
+    <a href="#">Canada visitor visa</a>
+    <a href="#">Study Permits</a>
+    <a href="#">Express Entry</a>
+    <a href="#">Jobs</a>
+  </nav>
+
+  <!-- Top Section: Image left + Visa Tool right -->
+  <div class="top-section">
+    <img src="visa.jpg" alt="Visa Information">
+    
+    <aside>
+      <h3>Visa Application Tool</h3>
+      <p>Download the template, fill it, then upload your completed form:</p>
+      
+      <!-- Direct download of visa.pdf -->
+      <a href="visa.pdf" class="btn" download>⬇ Download Visa Template (PDF)</a><br>
+
+      <!-- Applicant Name -->
+      <label for="applicantName"><b>Applicant Name:</b></label><br>
+      <input type="text" id="applicantName" placeholder="Enter your full name" class="inputField"><br><br>
+
+      <!-- Upload form -->
+      <label for="fileInput" class="btn secondary">📁 Upload Completed Form</label>
+      <input type="file" id="fileInput" accept="application/pdf" style="display:none">
+
+      <div class="status pending" id="status">No file uploaded</div>
+
+      <!-- Process -->
+      <button id="processBtn" class="btn">⚙ Process Visa</button>
+
+      <!-- WhatsApp -->
+      <a id="whatsappLink" class="whatsapp" href="#" target="_blank">💬 Contact on WhatsApp</a>
+      <div id="message"></div>
+    </aside>
+  </div>
+
+  <!-- Article Content -->
+  <div class="container" id="main">
+    <article>
+      <h2>Steps To Apply Canada Visitor Visa Via New IRCC Portal</h2>
+      <p><em>By Kamal Deep Singh, RCIC – 25 June 2023 | Last updated 4 August 2023</em></p>
+      <p>Do you plan to visit Canada any time soon? Depending on your country of residence, you will need a visitor visa...</p>
+      <h3>Who can apply for Canada visitor visa?</h3>
+      <ul>
+        <li>Valid travel document (passport)</li>
+        <li>Good health</li>
+        <li>Strong ties to home country</li>
+        <li>Funds for stay</li>
+        <li>Medical exam or letter of invitation (if required)</li>
+      </ul>
+      <h3>How long can you stay?</h3>
+      <p>Up to 6 months, unless border officer specifies otherwise. Extensions possible.</p>
+      <h3>Steps to apply:</h3>
+      <ol>
+        <li>Choose who is applying (self or others).</li>
+        <li>Confirm if application already in progress.</li>
+        <li>Create GCKey & IRCC Portal account.</li>
+        <li>Complete forms & upload documents.</li>
+        <li>Pay fee (CAD $3207) online.</li>
+      </ol>
+    </article>
+  </div>
+
+  <footer>
+    © 2025 INC - Immigration News Canada | Visa Processing Integration
+  </footer>
+
+  <!-- jsPDF Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script>
+    const fileInput = document.getElementById("fileInput");
+    const status = document.getElementById("status");
+    const processBtn = document.getElementById("processBtn");
+    const applicantNameField = document.getElementById("applicantName");
+    const whatsappLink = document.getElementById("whatsappLink");
+
+    let uploadedFile = null;
+
+    // Track uploaded file
+    fileInput.addEventListener("change", function(){
+      if(fileInput.files.length > 0){
+        uploadedFile = fileInput.files[0];
+        status.textContent = "✅ " + uploadedFile.name + " uploaded.";
+        status.className = "status success";
+      }
+    });
+
+    // Process visa and generate receipt
+    processBtn.addEventListener("click", async function(){
+      if(!uploadedFile){
+        alert("Please upload your completed visa form first.");
+        return;
+      }
+
+      const applicantName = applicantNameField.value.trim();
+      if(!applicantName){
+        alert("Please enter your full name before processing.");
+        return;
+      }
+
+      // Generate receipt PDF
+      const { jsPDF } = window.jspdf;
+      const doc = new jsPDF();
+      doc.setFontSize(16);
+      doc.text("Visa Application Receipt", 20, 20);
+      doc.setFontSize(12);
+      doc.text("Applicant Name: " + applicantName, 20, 40);
+      doc.text("File Submitted: " + uploadedFile.name, 20, 55);
+      doc.text("Date: " + new Date().toLocaleString(), 20, 70);
+      doc.text("Status: Received ✔", 20, 85);
+      
+      // Save as receipt.pdf
+      doc.save("Visa_Receipt.pdf");
+
+      // Update WhatsApp link
+      const phoneNumber = "254700000000"; // ← replace with your WhatsApp number
+      const msg = `Hello, my name is ${applicantName}. I have submitted my visa application.\n\nUploaded File: ${uploadedFile.name}\nDate: ${new Date().toLocaleString()}\nStatus: Received ✔`;
+      whatsappLink.href = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(msg)}`;
+      whatsappLink.style.display = "inline-block";
+      alert("Visa processed! A receipt was downloaded, and WhatsApp link is ready.");
+    });
+  </script>
+</body>
+</html>
